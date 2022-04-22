@@ -1,0 +1,33 @@
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crossplane-idp
+  labels:
+    app: crossplane-idp
+    component: web
+spec:
+  selector:
+    matchLabels:
+      app: crossplane-idp
+      component: web
+  template:
+    metadata:
+      labels:
+        app: crossplane-idp
+        component: web
+    spec:
+      serviceAccountName: crossplane-idp
+      containers:
+      - name: crossplane-idp
+        image: vfarcic/crossplane-idp
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+          requests:
+            cpu: 500m
+            memory: 512Mi

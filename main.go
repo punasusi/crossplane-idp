@@ -1,8 +1,8 @@
 package main
 
 import (
-	"crossplane-idp/src/helper"
 	"fmt"
+	"helper"
 	"net/http"
 	"strconv"
 	"text/template"
